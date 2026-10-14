@@ -1,4 +1,17 @@
 $ErrorActionPreference = "Stop"
+
+Get-Process dotnet -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+
+$env:ASPNETCORE_ENVIRONMENT = "Development"
+$env:ConnectionStrings__Fabrica = "Server=localhost;Database=FabricaPneus;Integrated Security=True;TrustServerCertificate=True;"
+if ([string]::IsNullOrWhiteSpace($env:Jwt__Key)) {
+    $bytes = New-Object byte[] 48
+    [System.Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($bytes)
+    $env:Jwt__Key = [Convert]::ToBase64String($bytes)
+}
+if ([string]::IsNullOrWhiteSpace($env:Jwt__Issuer)) { $env:Jwt__Issuer = "FabricaPneus" }
+if ([string]::IsNullOrWhiteSpace($env:Jwt__Audience)) { $env:Jwt__Audience = "FabricaPneusApp" }
+
 $url = "http://localhost:5080/"
 $serverResponding = $false
 $loginStatusReady = $false
