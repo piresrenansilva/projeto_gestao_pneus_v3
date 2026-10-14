@@ -1,0 +1,17 @@
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+appsettings.*.local.json
+*.bak
+*.mdf
+*.ldf
+*.sqlite
+*.sqlite3
+*.db
+logs/

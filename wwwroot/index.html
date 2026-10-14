@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fábrica de Pneus</title>
+<link rel="stylesheet" href="styles.css?v=20261013-tel" />
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="brand">
+      <div class="brand-logo"><img src="/fotos/logo/logo.png" alt="Logo da empresa" onerror="this.style.display='none'; this.parentElement.classList.add('no-logo')"><span>LOGO</span></div>
+      <strong>Fábrica de Pneus</strong>
+    </div>
+    <nav id="nav"></nav>
+  </aside>
+  <main>
+    <header class="top">
+      <div>
+        <h1 id="title">Painel</h1>
+        <p class="lede" id="lede"></p>
+      </div>
+      <div class="row" id="actions"></div>
+    </header>
+    <div id="view"></div>
+  </main>
+</div>
+<div class="modal-back" id="modal">
+  <form class="modal" id="form" autocomplete="new-password" data-lpignore="true">
+    <input type="text" style="display:none" autocomplete="username">
+    <input type="password" style="display:none" autocomplete="new-password">
+    <h2 id="modalTitle">Registro</h2>
+    <div class="grid" id="formFields" style="margin-top:12px"></div>
+    <div class="row" style="justify-content:flex-end;margin-top:12px">
+      <button type="button" class="btn ghost" id="cancelBtn">Cancelar</button>
+      <button class="btn" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<script src="js/utils.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/vendas.js" defer></script>
+<script src="js/app.js" defer></script>
+
+<div id="loginOverlay" class="login-overlay" role="dialog" aria-modal="true" aria-labelledby="loginTitle" hidden>
+  <form id="loginForm" class="login-card" autocomplete="off">
+    <div class="login-brand">Fábrica de Pneus</div>
+    <h2 id="loginTitle">Entrar no sistema</h2>
+    <label>Usuário
+      <input id="loginUser" name="account-entry" type="text" maxlength="100" required autocomplete="off" autocorrect="off" spellcheck="false" data-lpignore="true" data-1p-ignore data-bwignore>
+    </label>
+    <label>Senha
+      <input id="loginPass" name="access-key" type="password" maxlength="256" required autocomplete="off" data-lpignore="true" data-1p-ignore data-bwignore>
+    </label>
+    <label id="loginConfirmationLabel" hidden>
+      Confirmar senha
+      <input id="loginPassConfirmation" name="access-key-confirmation" type="password" maxlength="256" autocomplete="off" data-lpignore="true" data-1p-ignore data-bwignore>
+    </label>
+    <button id="loginButton" type="submit" class="btn" style="width:100%;margin-top:8px;">
+      Entrar
+    </button>
+    <p id="loginError" class="login-error" role="alert" aria-live="polite"></p>
+  </form>
+</div>
+</body>
+</html>
